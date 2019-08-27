@@ -23,7 +23,7 @@ public class ImageWatermarking {
         File[] files= directory.listFiles();
         //DefaultListModel<File> lstFiles=new DefaultListModel<>();
         for(File file:files)
-            if(!file.isDirectory())
+            if(isImage(file))
              lstFiles.addElement(file);
         return lstFiles;
     }
@@ -34,6 +34,20 @@ public class ImageWatermarking {
         BufferedImage image = ImageIO.read(file);
         return image;
     }
+      public static boolean isImage(File file)
+    {
+        try
+        {
+         ImageIO.read(file);
+        return true;
+        }
+        catch(Exception ex)
+        {
+            return false;
+        }
+    }
+    
+    
     public static BufferedImage readImage(File file)throws IOException
     {
         BufferedImage image = ImageIO.read(file);

@@ -3,6 +3,7 @@ package imagewatermarking;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -14,6 +15,7 @@ public class PicturePanel extends JPanel{
     public PicturePanel(JFrame imgframe) {
         this.imgframe = imgframe;
     }
+
     
     private BufferedImage image=null;
 
@@ -26,7 +28,7 @@ public class PicturePanel extends JPanel{
     public void setImage(BufferedImage image)
     {
         this.image=image;
-        imgframe.setSize(800,800* image.getHeight()/image.getWidth());
+      
         this.repaint();
     }
  
