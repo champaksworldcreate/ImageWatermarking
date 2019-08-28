@@ -46,6 +46,8 @@ public class ImageWatermarkingMain extends JFrame{
             System.out.println(ex);
             
         }
+           color=new Color(255,255,0,100);
+                   
            imgframe=new JFrame();
            
            imgframe.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
@@ -160,6 +162,32 @@ public class ImageWatermarkingMain extends JFrame{
                 }
             }
         });
+             
+             bttnAddWatermark=new JButton("Watermark");
+             add(bttnAddWatermark);
+             bttnAddWatermark.addActionListener(new ActionListener() {
+               @Override
+               public void actionPerformed(ActionEvent e) {
+                   int n=files.getSize();
+                   for(int i=0;i<=n-1;i++)
+                   {
+try           
+{
+    File file=files.get(i);
+    BufferedImage image=ImageWatermarking.readImage(file);
+    BufferedImage watermarkedimage=ImageWatermarking.cloneIt(image);
+    ImageWatermarking.putTextWatermark("VaranasiKshetra.com", watermarkedimage, font, color);
+    String filepath="K:\\output\\" + file.getName();
+    ImageWatermarking.writeImage(filepath, "jpg", watermarkedimage);
+    
+}catch(Exception ex)
+{
+    System.out.println(ex);
+}
+                   }
+               }
+           });
+             
     }
     public static void main(String[] args) {
         ImageWatermarkingMain f=new ImageWatermarkingMain();
