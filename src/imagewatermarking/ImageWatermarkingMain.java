@@ -46,8 +46,8 @@ public class ImageWatermarkingMain extends JFrame{
             System.out.println(ex);
             
         }
-           color=new Color(255,255,0,100);
-                   
+           //color=new Color(244,196,48,255);
+               color=Color.WHITE;    
            imgframe=new JFrame();
            
            imgframe.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
@@ -169,6 +169,7 @@ public class ImageWatermarkingMain extends JFrame{
                @Override
                public void actionPerformed(ActionEvent e) {
                    int n=files.getSize();
+                   
                    for(int i=0;i<=n-1;i++)
                    {
 try           
